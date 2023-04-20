@@ -69,6 +69,7 @@ const Movies: FC = () => {
                             to={`/movie/${movie.imdbID}`}
                             onClick={(ev) => {
                                 ev.preventDefault();
+                                // @ts-ignore startViewTransition not added yet
                                 document.startViewTransition(() => {
                                     navigate(`/movie/${movie.imdbID}`);
                                 });
