@@ -35,7 +35,7 @@ const Movies: FC = () => {
         queryKey: ["movies"],
         queryFn: async () => {
             const res = await fetch(
-                `http://www.omdbapi.com/?apikey=${
+                `https://www.omdbapi.com/?apikey=${
                     import.meta.env.VITE_OMDB_API_KEY
                 }&s=star+wars`
             );
@@ -43,11 +43,11 @@ const Movies: FC = () => {
         },
     });
 
-    if (!data) return <div>No results</div>;
-
     if (isLoading) return <div>Loading...</div>;
 
     if (error) return <div>Woops</div>;
+
+    if (!data) return <div>No results</div>;
 
     if (data.Error)
         return (
